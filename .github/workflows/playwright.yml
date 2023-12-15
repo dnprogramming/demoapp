@@ -1,0 +1,32 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./webapp
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+    - name: Install dependencies
+      run: yarn
+      working-directory: ${{ env.working-directory }}
+    - name: Install Playwright Browsers
+      run: yarn playwright install --with-deps
+      working-directory: ${{ env.working-directory }}
+    - name: Run Playwright tests
+      run: yarn playwright test
+      working-directory: ${{ env.working-directory }}
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report
+        path: ${{ env.working-directory }}/playwright-report/
+        retention-days: 30

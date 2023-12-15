@@ -1,0 +1,15 @@
+name: AI Docker Image CI
+on:
+  push:
+    branches: [ "**" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./ai
+      git_hash: $(git rev-parse --short "$GITHUB_SHA")
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the AI Docker image
+      run: docker build . --file Dockerfile --tag ai:${{ env.git_hash }}
+      working-directory: ${{ env.working-directory}}

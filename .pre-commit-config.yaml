@@ -1,0 +1,7 @@
+repos:
+  - repo: https://github.com/google/pyink
+    rev: 23.3.0
+    hooks:
+      - id: pyink
+        language_version: python3.9
+        files: ./ai

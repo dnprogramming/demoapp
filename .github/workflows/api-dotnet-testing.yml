@@ -1,0 +1,22 @@
+name: API .NET Testing
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./api
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Test
+      run: dotnet test --verbosity normal
+      working-directory: ${{ env.working-directory }}

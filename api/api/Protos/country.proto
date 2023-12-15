@@ -1,0 +1,33 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "api.Protos";
+
+service Country {
+  rpc AddCountry(AddCountryRequest) returns (AddCountryResponse);
+  rpc GetCountries(GetCountriesRequest) returns (GetCountriesResponse);
+  rpc GetCountry(GetCountryRequest) returns (GetCountryResponse);
+}
+
+message AddCountryRequest {
+  string countryname = 1;
+}
+
+message AddCountryResponse {
+  bool success = 1;
+}
+
+message GetCountriesRequest {}
+message GetCountryRequest {
+  string countryId = 1;
+}
+
+message GetCountriesResponse {
+  repeated CountryInformation countries = 1;
+}
+message GetCountryResponse {
+  CountryInformation country = 1;
+}
+message CountryInformation {
+  string countryid = 1;
+  string countryname = 2;
+}

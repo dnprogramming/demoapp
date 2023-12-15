@@ -1,0 +1,36 @@
+---
+version: '3'
+
+services:
+  mediawiki:
+    image: mediawiki
+    restart: always
+    ports:
+      - 9001:80
+    links:
+      - database
+    volumes:
+      - images:/var/www/html/images
+    networks:
+      - support-network
+
+  database:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_DATABASE: my_wiki
+      MYSQL_USER: wikiuser
+      MYSQL_PASSWORD: charge!1
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    volumes:
+      - support-db:/var/lib/mysql
+    networks:
+      - support-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8090:8090
+    networks:
+      - support-network

@@ -1,0 +1,31 @@
+---
+version: '3'
+
+services:
+  matomo:
+    container_name: matomo
+    image: matomo
+    ports:
+      - 9010:80
+    environment:
+      - MATOMO_DATABASE_HOST=matomo_db
+    env_file:
+      - ./analytics/db.env
+    networks:
+      - proxy
+      - net
+    depends_on:
+      - matomo_db
+    restart: always
+
+  matomo_db:
+    container_name: matomo_db
+    image: mariadb
+    command: --max-allowed-packet=64MB
+    environment:
+      - MYSQL_ROOT_PASSWORD=makeitup
+    env_file:
+      - ./analytics/db.env
+    networks:
+      - net
+    restart: always

@@ -1,0 +1,47 @@
+---
+version: '3'
+
+include:
+  - path: docker-compose.ai.yml
+  - path: docker-compose.analytics.yml
+  - path: docker-compose.api.yml
+  - path: docker-compose.db.yml
+  - path: docker-compose.logging.yml
+    env_file:
+      - .env
+  - path: docker-compose.message.yml
+  - path: docker-compose.security.yml
+  - path: docker-compose.support.yml
+  - path: docker-compose.webapp.yml
+
+volumes:
+  ai-cassandra:
+  apilog:
+  images:
+  redis:
+  redis-config:
+  sec-redis:
+  sec-redis-config:
+  support-db:
+  
+networks:
+  ai-network:
+    driver: bridge
+  ai-db-network:
+    driver: bridge
+  api-network:
+    driver: bridge
+  app-network:
+    driver: bridge
+  db-network:
+    driver: bridge
+  message-network:
+    driver: bridge
+  proxy:
+    driver: bridge
+  net:
+    driver: bridge
+  security-network:
+    driver: bridge
+  support-network:
+    driver: bridge

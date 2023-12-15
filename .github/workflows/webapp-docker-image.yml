@@ -1,0 +1,15 @@
+name: Web Application Docker Image CI
+on:
+  push:
+    branches: [ "**" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./webapp
+      git_hash: $(git rev-parse --short "$GITHUB_SHA")
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Web Application Docker image
+      run: docker build . --file Dockerfile --tag webapp:${{ env.git_hash }}
+      working-directory: ${{ env.working-directory}}
