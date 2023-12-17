@@ -1,6 +1,4 @@
-import * as jspb from 'google-protobuf'
-
-
+import * as jspb from 'google-protobuf';
 
 export class AddCountryRequest extends jspb.Message {
   getCountryname(): string;
@@ -8,16 +6,25 @@ export class AddCountryRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AddCountryRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: AddCountryRequest): AddCountryRequest.AsObject;
-  static serializeBinaryToWriter(message: AddCountryRequest, writer: jspb.BinaryWriter): void;
+  static toObject(
+    includeInstance: boolean,
+    msg: AddCountryRequest
+  ): AddCountryRequest.AsObject;
+  static serializeBinaryToWriter(
+    message: AddCountryRequest,
+    writer: jspb.BinaryWriter
+  ): void;
   static deserializeBinary(bytes: Uint8Array): AddCountryRequest;
-  static deserializeBinaryFromReader(message: AddCountryRequest, reader: jspb.BinaryReader): AddCountryRequest;
+  static deserializeBinaryFromReader(
+    message: AddCountryRequest,
+    reader: jspb.BinaryReader
+  ): AddCountryRequest;
 }
 
 export namespace AddCountryRequest {
   export type AsObject = {
-    countryname: string,
-  }
+    countryname: string;
+  };
 }
 
 export class AddCountryResponse extends jspb.Message {
@@ -26,30 +33,47 @@ export class AddCountryResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): AddCountryResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: AddCountryResponse): AddCountryResponse.AsObject;
-  static serializeBinaryToWriter(message: AddCountryResponse, writer: jspb.BinaryWriter): void;
+  static toObject(
+    includeInstance: boolean,
+    msg: AddCountryResponse
+  ): AddCountryResponse.AsObject;
+  static serializeBinaryToWriter(
+    message: AddCountryResponse,
+    writer: jspb.BinaryWriter
+  ): void;
   static deserializeBinary(bytes: Uint8Array): AddCountryResponse;
-  static deserializeBinaryFromReader(message: AddCountryResponse, reader: jspb.BinaryReader): AddCountryResponse;
+  static deserializeBinaryFromReader(
+    message: AddCountryResponse,
+    reader: jspb.BinaryReader
+  ): AddCountryResponse;
 }
 
 export namespace AddCountryResponse {
   export type AsObject = {
-    success: boolean,
-  }
+    success: boolean;
+  };
 }
 
 export class GetCountriesRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetCountriesRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: GetCountriesRequest): GetCountriesRequest.AsObject;
-  static serializeBinaryToWriter(message: GetCountriesRequest, writer: jspb.BinaryWriter): void;
+  static toObject(
+    includeInstance: boolean,
+    msg: GetCountriesRequest
+  ): GetCountriesRequest.AsObject;
+  static serializeBinaryToWriter(
+    message: GetCountriesRequest,
+    writer: jspb.BinaryWriter
+  ): void;
   static deserializeBinary(bytes: Uint8Array): GetCountriesRequest;
-  static deserializeBinaryFromReader(message: GetCountriesRequest, reader: jspb.BinaryReader): GetCountriesRequest;
+  static deserializeBinaryFromReader(
+    message: GetCountriesRequest,
+    reader: jspb.BinaryReader
+  ): GetCountriesRequest;
 }
 
 export namespace GetCountriesRequest {
-  export type AsObject = {
-  }
+  export type AsObject = {};
 }
 
 export class GetCountryRequest extends jspb.Message {
@@ -58,16 +82,25 @@ export class GetCountryRequest extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetCountryRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: GetCountryRequest): GetCountryRequest.AsObject;
-  static serializeBinaryToWriter(message: GetCountryRequest, writer: jspb.BinaryWriter): void;
+  static toObject(
+    includeInstance: boolean,
+    msg: GetCountryRequest
+  ): GetCountryRequest.AsObject;
+  static serializeBinaryToWriter(
+    message: GetCountryRequest,
+    writer: jspb.BinaryWriter
+  ): void;
   static deserializeBinary(bytes: Uint8Array): GetCountryRequest;
-  static deserializeBinaryFromReader(message: GetCountryRequest, reader: jspb.BinaryReader): GetCountryRequest;
+  static deserializeBinaryFromReader(
+    message: GetCountryRequest,
+    reader: jspb.BinaryReader
+  ): GetCountryRequest;
 }
 
 export namespace GetCountryRequest {
   export type AsObject = {
-    countryid: string,
-  }
+    countryid: string;
+  };
 }
 
 export class GetCountriesResponse extends jspb.Message {
@@ -78,16 +111,25 @@ export class GetCountriesResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetCountriesResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: GetCountriesResponse): GetCountriesResponse.AsObject;
-  static serializeBinaryToWriter(message: GetCountriesResponse, writer: jspb.BinaryWriter): void;
+  static toObject(
+    includeInstance: boolean,
+    msg: GetCountriesResponse
+  ): GetCountriesResponse.AsObject;
+  static serializeBinaryToWriter(
+    message: GetCountriesResponse,
+    writer: jspb.BinaryWriter
+  ): void;
   static deserializeBinary(bytes: Uint8Array): GetCountriesResponse;
-  static deserializeBinaryFromReader(message: GetCountriesResponse, reader: jspb.BinaryReader): GetCountriesResponse;
+  static deserializeBinaryFromReader(
+    message: GetCountriesResponse,
+    reader: jspb.BinaryReader
+  ): GetCountriesResponse;
 }
 
 export namespace GetCountriesResponse {
   export type AsObject = {
-    countriesList: Array<CountryInformation.AsObject>,
-  }
+    countriesList: Array<CountryInformation.AsObject>;
+  };
 }
 
 export class GetCountryResponse extends jspb.Message {
@@ -98,16 +140,25 @@ export class GetCountryResponse extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetCountryResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: GetCountryResponse): GetCountryResponse.AsObject;
-  static serializeBinaryToWriter(message: GetCountryResponse, writer: jspb.BinaryWriter): void;
+  static toObject(
+    includeInstance: boolean,
+    msg: GetCountryResponse
+  ): GetCountryResponse.AsObject;
+  static serializeBinaryToWriter(
+    message: GetCountryResponse,
+    writer: jspb.BinaryWriter
+  ): void;
   static deserializeBinary(bytes: Uint8Array): GetCountryResponse;
-  static deserializeBinaryFromReader(message: GetCountryResponse, reader: jspb.BinaryReader): GetCountryResponse;
+  static deserializeBinaryFromReader(
+    message: GetCountryResponse,
+    reader: jspb.BinaryReader
+  ): GetCountryResponse;
 }
 
 export namespace GetCountryResponse {
   export type AsObject = {
-    country?: CountryInformation.AsObject,
-  }
+    country?: CountryInformation.AsObject;
+  };
 }
 
 export class CountryInformation extends jspb.Message {
@@ -119,16 +170,24 @@ export class CountryInformation extends jspb.Message {
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CountryInformation.AsObject;
-  static toObject(includeInstance: boolean, msg: CountryInformation): CountryInformation.AsObject;
-  static serializeBinaryToWriter(message: CountryInformation, writer: jspb.BinaryWriter): void;
+  static toObject(
+    includeInstance: boolean,
+    msg: CountryInformation
+  ): CountryInformation.AsObject;
+  static serializeBinaryToWriter(
+    message: CountryInformation,
+    writer: jspb.BinaryWriter
+  ): void;
   static deserializeBinary(bytes: Uint8Array): CountryInformation;
-  static deserializeBinaryFromReader(message: CountryInformation, reader: jspb.BinaryReader): CountryInformation;
+  static deserializeBinaryFromReader(
+    message: CountryInformation,
+    reader: jspb.BinaryReader
+  ): CountryInformation;
 }
 
 export namespace CountryInformation {
   export type AsObject = {
-    countryid: string,
-    countryname: string,
-  }
+    countryid: string;
+    countryname: string;
+  };
 }
-

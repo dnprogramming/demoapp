@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { CountryClient } from '../generated/CountryServiceClientPb';
-import { CountryInformation, GetCountriesRequest } from '../generated/country_pb';
+import React, {useState, useEffect} from 'react';
+import {CountryClient} from '../generated/CountryServiceClientPb';
+import {CountryInformation, GetCountriesRequest} from '../generated/country_pb';
 
 const CountriesList: React.FC = () => {
   const [countries, setCountries] = useState<CountryInformation[]>([]);
@@ -39,10 +39,8 @@ const CountriesList: React.FC = () => {
 
   return (
     <ul>
-      {countries.map((country) => (
-        <li key={country.getCountryid()}>
-          {country.getCountryname()}
-        </li>
+      {countries.map(country => (
+        <li key={country.getCountryid()}>{country.getCountryname()}</li>
       ))}
     </ul>
   );
