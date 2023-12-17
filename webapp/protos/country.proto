@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-package countries;
+option csharp_namespace = "api.Protos";
 
 service Country {
   rpc AddCountry(AddCountryRequest) returns (AddCountryResponse);

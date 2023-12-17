@@ -2,6 +2,18 @@
 version: '3'
 
 services:
+  proxy:
+    build: 
+      context: ./proxy
+      dockerfile: Dockerfile
+    image: proxy
+    container_name: proxy
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - app-network
+      - api-network
   webapp:
     build:
       context: ./webapp
@@ -13,6 +25,6 @@ services:
       - 3000:3000
     depends_on:
       - api
+      - proxy
     networks:
       - app-network
-      - api-network

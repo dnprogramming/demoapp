@@ -78,10 +78,18 @@ if (!builder.Environment.IsProduction())
 }
 
 builder.Host.UseSerilog(log);
+builder.Services.AddCors(o => o.AddPolicy("AllowAll", builder =>
+{
+    builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithExposedHeaders("Grpc-Status", "Grpc-Message", "Grpc-Encoding", "Grpc-Accept-Encoding");
+}));
 
 var app = builder.Build();
 
-app.MapGrpcService<CountryService>();
+app.UseCors();
+app.MapGrpcService<CountryService>().RequireCors("AllowAll");
 
 if (!app.Environment.IsProduction())
 {
