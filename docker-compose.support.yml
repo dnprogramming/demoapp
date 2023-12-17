@@ -5,6 +5,8 @@ services:
   mediawiki:
     image: mediawiki
     restart: always
+    depends_on:
+      - api
     ports:
       - 9001:80
     links:
@@ -22,6 +24,8 @@ services:
       MYSQL_USER: wikiuser
       MYSQL_PASSWORD: charge!1
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    depends_on:
+      - webapp
     volumes:
       - support-db:/var/lib/mysql
     networks:
@@ -30,6 +34,8 @@ services:
   adminer:
     image: adminer
     restart: always
+    depends_on:
+      - database
     ports:
       - 8090:8090
     networks:

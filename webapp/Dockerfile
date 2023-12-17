@@ -1,4 +1,4 @@
-FROM node:latest AS build
+FROM node:iron-alpine3.19 AS build
 
 # Disable telemetry
 ENV NEXT_TELEMETRY_DISABLED 1
@@ -18,7 +18,7 @@ RUN npm run build
 # =======================================
 # Image generate dependencies production
 # =======================================
-FROM node:latest AS dependencies
+FROM node:iron-alpine3.19 AS dependencies
 
 # Environment Production
 ENV NODE_ENV production
@@ -35,7 +35,7 @@ RUN yarn
 # =======================================
 # Image distroless final
 # =======================================
-FROM gcr.io/distroless/nodejs:latest
+FROM gcr.io/distroless/nodejs20-debian12:latest
 
 # Mark as prod, disable telemetry, set port
 ENV NODE_ENV production
