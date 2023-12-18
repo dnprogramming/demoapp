@@ -29,14 +29,9 @@ const CountriesList: React.FC = () => {
     getCountries();
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
+  if (countries.length === 0) {
+    return <div>No Data</div>;
   }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
   return (
     <ul>
       {countries.map(country => (
