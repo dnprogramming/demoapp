@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Hosting;
-
 namespace tests.Utilities
 {
   public class ConnectionsTests
@@ -24,7 +22,7 @@ namespace tests.Utilities
     {
       var RedisConnection = Connections.RedisConnectionString();
 
-      Assert.AreEqual("MockRedis:6379,password=MockRedisPassword", RedisConnection);
+      Assert.Equals("MockRedis:6379,password=MockRedisPassword", RedisConnection);
     }
 
     [Test]
@@ -32,7 +30,7 @@ namespace tests.Utilities
     {
       var SecuredRedisConnection = Connections.SecuredRedisConnectionString();
 
-      Assert.AreEqual("MockSecuredRedis:6379,password=MockSecuredRedisPassword", SecuredRedisConnection);
+      Assert.Equals("MockSecuredRedis:6379,password=MockSecuredRedisPassword", SecuredRedisConnection);
     }
 
     [Test]
@@ -40,7 +38,7 @@ namespace tests.Utilities
     {
       var SqlConnectionString = Connections.SQLConnectionString();
 
-      Assert.AreEqual("Server=MockDb;Database=MockSystem;User Id=MockUser;Password=MockPassword;Trusted_Connection=True;TrustServerCertificate=true;integrated security=false;", SqlConnectionString);
+      Assert.Equals("Server=MockDb;Database=MockSystem;User Id=MockUser;Password=MockPassword;Trusted_Connection=True;TrustServerCertificate=true;integrated security=false;", SqlConnectionString);
     }
   }
 }

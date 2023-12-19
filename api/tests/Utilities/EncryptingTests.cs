@@ -15,7 +15,7 @@ namespace tests.Utilities
     {
       var enc = new Encrypting(new Mock<ILogger<Encrypting>>().Object);
       string key = enc.SPPassKey();
-      Assert.True(key == "Pass");
+      Assert.Equals(key, "Pass");
     }
   }
 }
