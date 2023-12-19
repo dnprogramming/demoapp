@@ -11,8 +11,6 @@ namespace ai_data_injector
 {
 	public class ProcessingMessages : IProcessingMessages
 	{
-        private readonly ConnectionFactory factory = new() { HostName = Environment.GetEnvironmentVariable("MessageUrl") };
-
 		IProcessingDataInjection _dataInjection;
 		public ProcessingMessages(IProcessingDataInjection dataInjection)
 		{
@@ -21,16 +19,17 @@ namespace ai_data_injector
 
 		public void ProcessSystemMaintenanceMessages()
 		{
-            using var connection = factory.CreateConnection();
-            using var channel = connection.CreateModel();
+			Console.WriteLine(" [*] Waiting for messages.");
+            var factory = new ConnectionFactory { HostName = "localhost" };
+			using var connection = factory.CreateConnection();
+			using var channel = connection.CreateModel();
 
-			channel.QueueDeclareNoWait(
-				queue: "maintenanceRecord",
-                durable: false,
-                exclusive: false,
-                autoDelete: true,
-                arguments: null
-            );
+			channel.QueueDeclare(queue: "hello",
+								durable: false,
+								exclusive: false,
+								autoDelete: false,
+								arguments: null);
+			channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
 
 			var consumer = new EventingBasicConsumer(channel);
 
@@ -38,9 +37,12 @@ namespace ai_data_injector
 			{
 				var data = ea.Body.ToArray();
 				var message = Encoding.UTF8.GetString(data);
-				List<MaintenanceRecordModel> maintenance = new();
-				_dataInjection.InjectSystemMaintenance(maintenance);
+				_dataInjection.InjectSystemMaintenance(message);
 			};
+
+			channel.BasicConsume(queue: "hello",
+                     autoAck: true,
+                     consumer: consumer);
         }
 	}
 }

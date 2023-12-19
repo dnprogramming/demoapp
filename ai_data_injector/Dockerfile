@@ -12,7 +12,7 @@ WORKDIR "/src/."
 RUN dotnet build "ai_data_injector.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ai_data_injector.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "ai_data_injector.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

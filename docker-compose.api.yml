@@ -11,6 +11,7 @@ services:
       - SpPassKey=Test2Alpha1234!
       - MongoDbConnectionString=mongodb://root:example@mongo:27017/
       - MongoDbDatabaseName=encryption
+      - MessageUrl=amqp://user:password@localhost:5672/
       - RedisHostName=redis
       - RedisPortNumber=6379
       - RedisPassword=Romeo1Sierra@Zulu

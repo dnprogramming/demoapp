@@ -5,9 +5,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <PublishAot>true</PublishAot>
+    <PublishAot>false</PublishAot>
     <UserSecretsId>dotnet-ai_data_injector-f93d702e-ae3a-489f-9ce4-ce37de42058f</UserSecretsId>
     <RootNamespace>ai_data_injector</RootNamespace>
+    <SelfContained>true</SelfContained>
+    <UseAppHost>true</UseAppHost>
   </PropertyGroup>
 
   <ItemGroup>

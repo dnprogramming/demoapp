@@ -9,6 +9,7 @@ namespace ai_data_injector.Processing
 	{
         Cluster cluster = Cluster
 						  .Builder()
+						  .AddContactPoint("127.0.0.1")
 						  .WithCredentials(
 							 Environment.GetEnvironmentVariable("CassandraUserName"),
 							 Environment.GetEnvironmentVariable("CassandraPassword")
@@ -19,21 +20,16 @@ namespace ai_data_injector.Processing
 		{
 		}
 
-		internal async Task InjectingSystemMaintenance(List<MaintenanceRecordModel> maintenance)
+		internal async Task InjectingSystemMaintenance(string maintenance)
 		{
 			ISession session = await cluster.ConnectAsync(Environment.GetEnvironmentVariable("CassandraSystemMaintenanceKeyspace"));
 
 			var prepare = await session.PrepareAsync("INSERT INTO system_maintenance (key, text, date) VALUES (?, ?, ?)");
 			var batch = new BatchStatement();
-
-			foreach(var maint in maintenance)
-			{
-				batch.Add(prepare.Bind(Guid.NewGuid(), maint.Data, maint.Date));
-			}
-
+			batch.Add(prepare.Bind(Guid.NewGuid(), maintenance, DateTime.Now));
 			await session.ExecuteAsync(batch);
 		}
-        public async Task InjectSystemMaintenance(List<MaintenanceRecordModel> maintenance)
+        public async Task InjectSystemMaintenance(string maintenance)
 		{
 			await InjectingSystemMaintenance(maintenance);
 		}

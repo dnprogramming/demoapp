@@ -5,7 +5,7 @@ namespace ai_data_injector.Interfaces
 {
 	public interface IProcessingDataInjection
 	{
-        Task InjectSystemMaintenance(List<MaintenanceRecordModel> maintenance);
+        Task InjectSystemMaintenance(string maintenance);
     }
 }
 

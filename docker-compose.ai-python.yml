@@ -1,0 +1,19 @@
+---
+version: '3'
+
+services:
+  ai:
+    build:
+      context: ./ai
+      dockerfile: Dockerfile
+    image: ai
+    container_name: ai
+    restart: always
+    ports:
+      - 8888:8888
+    networks:
+      - ai-network
+      - ai-db-network
+    depends_on:
+        cassandra:
+          condition: service_healthy

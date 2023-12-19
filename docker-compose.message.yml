@@ -3,9 +3,15 @@ version: '3'
 
 services:
   rabbitmq:
-    image: rabbitmq:latest
     container_name: rabbitmq
+    tty: true
+    hostname: rabbitmq
     ports:
-      - 5672:5672
+      - "15672:15672"
+      - "5672:5672"
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
     networks:
       - message-network

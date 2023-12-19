@@ -1,0 +1,22 @@
+---
+version: '3'
+
+services:
+  dataingestor:
+    build:
+      context: ./ai_data_injector
+      dockerfile: Dockerfile
+    environment:
+      - CassandraUserName=cassandra
+      - CassandraPassword=cassandra
+      - CassandraSystemMaintenanceKeyspace=systemdata
+      - MessageUrl=amqp://guest:guest@localhost:5672/
+    image: dataingestor
+    container_name: dataingestor
+    restart: always
+    networks:
+      - ai-network
+      - ai-db-network
+    depends_on:
+      cassandra:
+        condition: service_healthy

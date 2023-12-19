@@ -23,6 +23,7 @@ global using Microsoft.Extensions.Caching.StackExchangeRedis;
 global using Microsoft.Extensions.Options;
 global using MongoDB.Driver;
 global using Newtonsoft.Json;
+global using RabbitMQ.Client;
 global using StackExchange.Redis;
 global using Serilog;
 global using Serilog.Events;
