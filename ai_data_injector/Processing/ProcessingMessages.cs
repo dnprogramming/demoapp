@@ -20,11 +20,11 @@ namespace ai_data_injector
 		public void ProcessSystemMaintenanceMessages()
 		{
 			Console.WriteLine(" [*] Waiting for messages.");
-            var factory = new ConnectionFactory { HostName = "localhost" };
+            var factory = new ConnectionFactory { Uri = new Uri("amqp://guest:guest@localhost:5672/") };
 			using var connection = factory.CreateConnection();
 			using var channel = connection.CreateModel();
 
-			channel.QueueDeclare(queue: "hello",
+			channel.QueueDeclare(queue: "queue",
 								durable: false,
 								exclusive: false,
 								autoDelete: false,
@@ -40,7 +40,7 @@ namespace ai_data_injector
 				_dataInjection.InjectSystemMaintenance(message);
 			};
 
-			channel.BasicConsume(queue: "hello",
+			channel.BasicConsume(queue: "queue",
                      autoAck: true,
                      consumer: consumer);
         }
