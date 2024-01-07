@@ -2,8 +2,7 @@
 version: '3'
 
 include:
-  # - path: docker-compose.ai-dotnet.yml
-  # - path: docker-compose.ai-python.yml
+  # - path: docker-compose.ai.yml
   # - path: docker-compose.analytics.yml
   - path: docker-compose.api.yml
   - path: docker-compose.db.yml

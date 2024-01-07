@@ -53,10 +53,8 @@ public class ProcessingCountry : IProcessingCountry
         DynamicParameters parameters = new();
         parameters.Add("@passkey", _enc.SPPassKey());
         var result = _connection.Query<CountryDataModel>(sp, parameters, null, true, null, CommandType.StoredProcedure).ToList();
-        Console.WriteLine(result.Count);
         foreach (var r in result)
         {
-
           string decryptedcountry = _dataProt.Unprotect(r.Country_name);
           CountryInformation country = new()
           {
@@ -65,15 +63,26 @@ public class ProcessingCountry : IProcessingCountry
           };
           countries.Add(country);
         }
+        List<CountryInformation> countriesEncrypted = [];
+        foreach(var r in result)
+        {
+
+          CountryInformation encryptedCountry = new()
+          {
+            Countryid = r.Country_external_id.ToString(),
+            Countryname = r.Country_name
+          };
+          countriesEncrypted.Add(encryptedCountry);
+        }
         _cacheOptions.SetAbsoluteExpiration(DateTimeOffset.Now.AddDays(7));
-        var jsonString = JsonConvert.SerializeObject(countries);
+        var jsonString = JsonConvert.SerializeObject(countriesEncrypted);
         var byteArray = Encoding.UTF8.GetBytes(jsonString);
         _cache.Set(cacheKey, byteArray, _cacheOptions);
       }
     }
     catch(Exception ex)
     {
-      _logger.LogError($"A Error has occurred in GetCountries Encrypted: {ex.Message}");
+      _logger.LogError($"A Error has occurred in GetCountries Encrypted API: {ex.Message}");
     }
     return countries;
   }
@@ -120,7 +129,7 @@ public class ProcessingCountry : IProcessingCountry
     }
     catch(Exception ex)
     {
-      _logger.LogError("A Error has occurred in GetCountries Encrypted: ", ex.Message);
+      _logger.LogError("A Error has occurred in GetCountries Encrypted Cache: ", ex.Message);
     }
     return countries;
   }
