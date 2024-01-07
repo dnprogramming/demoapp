@@ -38,7 +38,7 @@ namespace tests.Utilities
     {
       var SqlConnectionString = Connections.SQLConnectionString();
 
-      Assert.That("Server=MockDb;Database=MockSystem;User Id=MockUser;Password=MockPassword;Trusted_Connection=True;TrustServerCertificate=true;integrated security=false;" == SqlConnectionString);
+      Assert.That("Server=MockDb;Database=MockSystem;User Id=MockUser;Password=MockPassword;Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true;integrated security=false;" == SqlConnectionString);
     }
   }
 }
