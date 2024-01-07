@@ -144,7 +144,9 @@ public class ProcessingCountry : IProcessingCountry
     DynamicParameters parameters = new();
     parameters.Add("@country_name", name);
     parameters.Add("@record_id", dbType: DbType.Int32, direction: ParameterDirection.Output);
+    _connection.Open();
     var countryId = _connection.ExecuteAsync(sp, parameters, null, null, CommandType.StoredProcedure).Result;
+    _connection.Close();
     var info = _db.Countries.Where(e => e.Id == countryId).FirstOrDefault().CountryExternalId.ToString();
     CountryInformation countryInformation = new()
     {
