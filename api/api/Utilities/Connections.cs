@@ -8,7 +8,7 @@ public static class Connections
         string? ServerDatabase = Environment.GetEnvironmentVariable("SQLServerDatabase");
         string? ServerUser = Environment.GetEnvironmentVariable("SQLUserName");
         string? ServerPassword = Environment.GetEnvironmentVariable("SQLPassword");
-        string connString = $"Server={ServerName};Database={ServerDatabase};User Id={ServerUser};Password={ServerPassword};Trusted_Connection=True;TrustServerCertificate=true;integrated security=false;";
+        string connString = $"Server={ServerName};Database={ServerDatabase};User Id={ServerUser};Password={ServerPassword};Trusted_Connection=True;TrustServerCertificate=true;MultipleActiveResultSets=true;integrated security=false;";
         return connString;
     }
 

@@ -52,6 +52,7 @@ public class ProcessingCountry : IProcessingCountry
         string sp = "uspGetCountries";
         DynamicParameters parameters = new();
         parameters.Add("@passkey", _enc.SPPassKey());
+        _connection.Open();
         var result = _connection.Query<CountryDataModel>(sp, parameters, null, true, null, CommandType.StoredProcedure).ToList();
         foreach (var r in result)
         {
@@ -74,6 +75,7 @@ public class ProcessingCountry : IProcessingCountry
           };
           countriesEncrypted.Add(encryptedCountry);
         }
+        _connection.Close();
         _cacheOptions.SetAbsoluteExpiration(DateTimeOffset.Now.AddDays(7));
         var jsonString = JsonConvert.SerializeObject(countriesEncrypted);
         var byteArray = Encoding.UTF8.GetBytes(jsonString);
@@ -111,6 +113,7 @@ public class ProcessingCountry : IProcessingCountry
         string sp = "uspGetCountries";
         DynamicParameters parameters = new();
         parameters.Add("@passkey", _enc.SPPassKey());
+        _connection.Open();
         var result = _connection.Query<CountryDataModel>(sp, parameters, null, true, null, CommandType.StoredProcedure).ToList();
         foreach (var r in result)
         {
@@ -121,6 +124,7 @@ public class ProcessingCountry : IProcessingCountry
           };
           countries.Add(country);
         }
+        _connection.Close();
         _cacheOptions.SetAbsoluteExpiration(DateTimeOffset.Now.AddDays(7));
         var jsonString = JsonConvert.SerializeObject(countries);
         var byteArray = Encoding.UTF8.GetBytes(jsonString);
