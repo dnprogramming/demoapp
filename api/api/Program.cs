@@ -52,6 +52,7 @@ builder.Services.Configure<MongoDbConn>(
   builder.Configuration.GetSection("MongoDb"));
 builder.Services.AddSingleton(dbConnection);
 builder.Services.AddTransient<IEncrypting, Encrypting>();
+builder.Services.AddTransient<IMessageHelper, MessageHelper>();
 builder.Services.AddTransient<IMongoDbService, MongoDbService>();
 builder.Services.AddTransient<IProcessingCountry, ProcessingCountry>();
 

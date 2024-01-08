@@ -20,12 +20,12 @@ namespace ai_data_injector
 		public void ProcessSystemMaintenanceMessages()
 		{
 			Console.WriteLine(" [*] Waiting for messages.");
-            var factory = new ConnectionFactory { Uri = new Uri("amqp://guest:guest@localhost:5672/") };
+            var factory = new ConnectionFactory { HostName = "host.docker.internal", UserName = "guest", Password = "guest" };
 			using var connection = factory.CreateConnection();
 			using var channel = connection.CreateModel();
 
 			channel.QueueDeclare(queue: "queue",
-								durable: false,
+								durable: true,
 								exclusive: false,
 								autoDelete: false,
 								arguments: null);

@@ -8,6 +8,7 @@ public class ProcessingCountry : IProcessingCountry
   private readonly IDataProtector _dataProt;
   private readonly IDbConnection _connection;
   private readonly IEncrypting _enc;
+  private readonly IMessageHelper _messageHelper;
   private readonly IMongoDbService _mongo;
   private SystemContext _db;
   private ILogger<ProcessingCountry> _logger;
@@ -15,6 +16,7 @@ public class ProcessingCountry : IProcessingCountry
                              IDataProtectionProvider dataProtProvider,
                              IDbConnection connection,
                              IEncrypting enc,
+                             IMessageHelper messageHelper,
                              IMongoDbService mongo,
                              ILogger<ProcessingCountry> logger)
   {
@@ -24,6 +26,7 @@ public class ProcessingCountry : IProcessingCountry
     _connection = connection;
     _dataProt = dataProtProvider.CreateProtector("Country");
     _enc = enc;
+    _messageHelper = messageHelper;
     _mongo = mongo;
   }
   private List<CountryInformation> GetCountriesEncryptedForApi()
@@ -140,6 +143,7 @@ public class ProcessingCountry : IProcessingCountry
   private CountryInformation InsertCountryEncrypted(AddCountryRequest country)
   {
     var name = _dataProt.Protect(country.Countryname.Trim());
+    _messageHelper.PublishMessage(country.Countryname.Trim());
     string sp = "uspInsertCountry";
     DynamicParameters parameters = new();
     parameters.Add("@country_name", name);
