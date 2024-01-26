@@ -1,4 +1,4 @@
-black==23.12.1
+black==24.1.0
 click==8.1.7
 mypy-extensions==1.0.0
 packaging==23.2
