@@ -38,7 +38,7 @@
     <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
     <PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
     <PackageReference Include="Elastic.CommonSchema.Serilog" Version="8.11.1" />
-    <PackageReference Include="Elastic.Apm.SerilogEnricher" Version="8.11.0" />
+    <PackageReference Include="Elastic.Apm.SerilogEnricher" Version="8.11.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.6" />
     <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.63.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
