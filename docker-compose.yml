@@ -1,15 +1,14 @@
 ---
-version: '3'
 
 include:
-  - path: docker-compose.ai.yml
+  # - path: docker-compose.ai.yml
   # - path: docker-compose.analytics.yml
   - path: docker-compose.api.yml
   - path: docker-compose.db.yml
   # - path: docker-compose.logging.yml
   #   env_file:
   #     - .env
-  - path: docker-compose.message.yml
+  # - path: docker-compose.message.yml
   # - path: docker-compose.security.yml
   # - path: docker-compose.support.yml
   - path: docker-compose.webapp.yml

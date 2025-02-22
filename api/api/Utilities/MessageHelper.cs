@@ -1,7 +1,9 @@
+using System.Threading.Tasks;
+
 namespace api.Utilities;
 
 public class MessageHelper : IMessageHelper {
-    private static void PublishingMessage(string message)
+    private static async Task PublishingMessage(string message)
     {
         var factory = new ConnectionFactory()
         {
@@ -10,12 +12,15 @@ public class MessageHelper : IMessageHelper {
             Password = "guest" 
         };
 
-        using (var connection = factory.CreateConnection())
-        using (var channel = connection.CreateModel())
+        using (var connection = factory.CreateConnectionAsync())
+        using (var channel = connection.Result.CreateChannelAsync())
         {
-            channel.QueueDeclare("queue", durable: true, exclusive: false, autoDelete: false, arguments: null);
-            var body = Encoding.UTF8.GetBytes(message);
-            channel.BasicPublish("", "queue", null, body);
+            channel.Result.QueueDeclareAsync("queue", durable: true, exclusive: false, autoDelete: false, arguments: null);
+            // var body = Encoding.UTF8.GetBytes(message);
+            // channel.Result.BasicPublishAsync(exchange: "", routingKey: "queue",
+            //     basicProperties: null, body: body);
+            channel.Result.CloseAsync();
+            connection.Result.CloseAsync();
         }
     }
 
