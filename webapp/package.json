@@ -68,9 +68,13 @@
     "workbox-webpack-plugin": "^7.3.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.21.0",
     "@jest/globals": "^29.7.0",
     "@playwright/test": "^1.50.1",
+    "@types/aria-query": "^5.0.4",
     "@types/google-protobuf": "^3.15.12",
+    "eslint-plugin-n": "^17.15.1",
     "jest-environment-jsdom": "^29.7.0",
     "jest-junit": "^16.0.0"
   },

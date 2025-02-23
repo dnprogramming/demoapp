@@ -5,6 +5,7 @@ services:
     build:
       context: ./api
       dockerfile: Dockerfile
+    platform: linux/amd64
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - SpPassKey=Test2Alpha1234!
