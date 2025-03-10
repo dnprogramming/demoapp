@@ -40,7 +40,7 @@
     <PackageReference Include="Elastic.CommonSchema.Serilog" Version="8.12.3" />
     <PackageReference Include="Elastic.Apm.SerilogEnricher" Version="8.12.3" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.2" />
-    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.67.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.70.0" />
     <PackageReference Include="MongoDB.Driver" Version="3.2.1" />
     <PackageReference Include="MongoDB.Bson" Version="3.2.1" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.30.0" />
