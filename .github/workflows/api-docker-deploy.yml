@@ -16,6 +16,7 @@ jobs:
             context: ./api
             push: true
             repository: dnprogramming
+            registry: docker.io
             tags: api:latest
             file: ./api/Dockerfile
             username: ${{ secrets.DOCKER_USERNAME }}
