@@ -9,16 +9,16 @@ jobs:
       working-directory: ./api
       git_hash: $(git rev-parse --short "$GITHUB_SHA")
     steps:
-        - uses: actions/checkout@v4
-        - name: Build and push Docker image
-          uses: docker/build-push-action@v2
-          with:
-            context: ./api
-            push: true
-            repository: dnprogramming
-            registry: docker.io
-            tags: dnprogamming/api:latest
-            file: ./api/Dockerfile
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-      
+    - uses: actions/checkout@v4
+    - name: Build the API Docker image
+      run: docker build . --file Dockerfile --tag api:latest
+      working-directory: ${{ env.working-directory}}
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Push the API Docker image
+      run: docker push dnprogramming/api:latest
