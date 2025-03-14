@@ -16,7 +16,7 @@ jobs:
             context: .
             push: true
             repository: dnprogramming
-            tags: api:${{ env.git_hash }}
+            tags: api:latest
             file: api/Dockerfile
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
