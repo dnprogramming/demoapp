@@ -23,7 +23,7 @@ services:
       - SQLUserName=App_Runner_Account
       - SQLPassword=Test2Alpha212!
     ports:
-      - 9080:8080
+      - 9055:8080
     image: api
     container_name: api
     restart: always
