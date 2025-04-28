@@ -6,7 +6,7 @@
     "@babel/core": "^7.26.10",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.16",
     "@svgr/webpack": "^8.1.0",
-    "@types/node": "^22.15.2",
+    "@types/node": "^22.15.3",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "babel-loader": "^10.0.0",
