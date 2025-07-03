@@ -73,7 +73,7 @@
     "babel-jest": "^30.0.2",
     "eslint-plugin-n": "^17.20.0",
     "jest": "^30.0.3",
-    "jest-environment-jsdom": "^30.0.2",
+    "jest-environment-jsdom": "^30.0.4",
     "jest-junit": "^16.0.0",
     "jest-resolve": "^30.0.2",
     "jest-watch-typeahead": "^3.0.1"
