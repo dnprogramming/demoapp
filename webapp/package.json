@@ -70,7 +70,7 @@
     "@types/aria-query": "^5.0.4",
     "@types/google-protobuf": "^3.15.12",
     "@types/jest": "^30.0.0",
-    "babel-jest": "^30.0.4",
+    "babel-jest": "^30.0.5",
     "eslint-plugin-n": "^17.21.0",
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.5",
