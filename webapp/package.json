@@ -75,7 +75,7 @@
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
     "jest-junit": "^16.0.0",
-    "jest-resolve": "^30.0.2",
+    "jest-resolve": "^30.0.5",
     "jest-watch-typeahead": "^3.0.1"
   },
   "scripts": {
