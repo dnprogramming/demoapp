@@ -10430,10 +10430,10 @@ webpack-dev-server@^5.2.2:
     webpack-dev-middleware "^7.4.2"
     ws "^8.18.0"
 
-webpack-manifest-plugin@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/webpack-manifest-plugin/-/webpack-manifest-plugin-6.0.0.tgz#14dbe5802a48a23204d2744bc8543a25826907b7"
-  integrity sha512-IxArS8sqyZAWrfkZfB/7yDS7GgeKZsUpC7XHDsh0tVCgO66TWcwZMWGB/61cWro/4EHv8GGzPc0hW5Nn9ZCbjA==
+webpack-manifest-plugin@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-manifest-plugin/-/webpack-manifest-plugin-6.0.1.tgz#8db0b6b75bd8635fcee657f025dff3bc9ba77fb4"
+  integrity sha512-R0p/8/IJVY5hIhQtkeWUQugalVpIwojc09eb14zGq+oiZOCmN5paAz2NBJfd+6v9eBbxAS3YMjc2ov8UMlCDLQ==
   dependencies:
     tapable "^2.0.0"
     webpack-sources "^3.3.3"
