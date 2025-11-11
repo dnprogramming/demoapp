@@ -70,6 +70,7 @@
     <Folder Include="DataModels\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.11" />
     <Protobuf Include="Protos\country.proto" GrpcServices="Server" />
   </ItemGroup>
 </Project>
