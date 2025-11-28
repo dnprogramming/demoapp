@@ -60,7 +60,7 @@
     "workbox-webpack-plugin": "^7.4.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.0",
     "@jest/globals": "^30.2.0",
     "@playwright/test": "^1.57.0",
