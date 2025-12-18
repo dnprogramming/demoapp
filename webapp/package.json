@@ -26,7 +26,7 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-webpack-plugin": "^5.0.2",
     "file-loader": "^6.2.0",
-    "fs-extra": "^11.3.2",
+    "fs-extra": "^11.3.3",
     "google-protobuf": "^4.0.1",
     "grpc-web": "^2.0.2",
     "gts": "^7.0.0",
