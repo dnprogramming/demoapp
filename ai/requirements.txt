@@ -4,6 +4,6 @@ mypy-extensions==1.1.0
 packaging==25.0
 pathspec==0.12.1
 platformdirs==4.5.1
-pyink==24.10.1
+pyink==25.12.0
 tomli==2.3.0
 typing_extensions==4.15.0
