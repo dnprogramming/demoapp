@@ -50,7 +50,7 @@
     "semver": "^7.7.4",
     "source-map-loader": "^5.0.0",
     "style-loader": "^4.0.0",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "^4.2.0",
     "terser-webpack-plugin": "^5.3.16",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
