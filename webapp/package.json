@@ -74,7 +74,7 @@
     "eslint-plugin-n": "^17.24.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0",
-    "jest-junit": "^16.0.0",
+    "jest-junit": "^17.0.0",
     "jest-resolve": "^30.3.0",
     "jest-watch-typeahead": "^3.0.1"
   },
