@@ -1,7 +1,7 @@
 black==26.3.1
 click==8.3.3
 mypy-extensions==1.1.0
-packaging==26.1
+packaging==26.2
 pathspec==1.1.1
 platformdirs==4.9.6
 pyink==25.12.0
