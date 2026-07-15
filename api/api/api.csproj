@@ -11,9 +11,9 @@
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.80.0" />
     <PackageReference Include="System.Text.Json" Version="10.0.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.17" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.17" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.17">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.18">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -70,7 +70,7 @@
     <Folder Include="DataModels\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="10.0.9" />
     <Protobuf Include="Protos\country.proto" GrpcServices="Server" />
   </ItemGroup>
